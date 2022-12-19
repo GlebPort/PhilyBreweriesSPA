@@ -1,0 +1,40 @@
+<div class='card'>
+    <div class='card-header'>
+      <strong>{{brewery?.name}}</strong>
+    </div>
+    <div class="card-body">
+      <div>
+        <strong>On Map: </strong>
+        <agm-map id="map" *ngIf="brewery?.longitude && brewery?.latitude; else noLocation" [longitude]="+brewery?.longitude!" [latitude]= "+brewery?.latitude!" [zoom]="13">
+          <agm-marker [latitude]="brewery?.latitude!" [longitude]="brewery?.longitude!"></agm-marker>
+        </agm-map>
+        <ng-template #noLocation>
+          <p>No location Data</p> 
+        </ng-template>
+      </div>
+      <div>
+      <div>
+        <strong>Name: </strong>
+        <p>{{ brewery?.name}}</p>
+      </div>
+      <div>
+        <strong>Address: </strong>
+        <p>{{brewery?.street + ", "+ brewery?.city + ", "+ brewery?.state + ", "+ brewery?.postal_code}}</p>
+      </div>
+      <div>
+        <strong>Website: </strong>
+        <p><a [href]="brewery?.website_url" target="_blank"> {{ brewery?.website_url}}</a></p>
+      </div>
+    </div>
+    <div>
+      <strong></strong>
+      <p></p>
+    </div>
+    <div class='card-footer'>
+      <button class='btn btn-outline-secondary'
+              style='width:80px'
+              (click)='onBack()'>
+        <i class='fa fa-chevron-left'></i> Back
+      </button>
+    </div>
+</div>
