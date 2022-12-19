@@ -1,0 +1,36 @@
+<div class='card'>
+    <div class='card-header'>
+      Philadelphia Brewewries List
+    </div>
+    <div class='card-body'>
+      <div class='table-responsive'>
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Address</th>
+              <th>Website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let brewery of breweries'>
+              <td>
+                <a [routerLink]="['/philybreweries', brewery.id]">
+                  {{ brewery.name }}
+                </a>
+              </td>
+              <td>{{ brewery.brewery_type }}</td>
+              <td>{{brewery?.street + ", "+ brewery?.city + ", "+ brewery?.state + ", "+ brewery?.postal_code}}</td>
+              <td>
+                <a [href] = "brewery.website_url" target="_blank">
+                  {{ brewery.website_url }}
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
