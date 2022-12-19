@@ -8,8 +8,8 @@ import { IBrewery } from "../models/brewery";
   providedIn: 'root'
 })
 export class BreweryService {
-  private breweriesUrl = 'https://api.openbrewerydb.org/breweries';
-  //private breweriesUrl = "https://localhost:7048/api/breweries";
+  //private breweriesUrl = 'https://api.openbrewerydb.org/breweries';
+  private breweriesUrl = "https://localhost:7048/api/breweries";
 
   constructor(private http: HttpClient) { }
 
